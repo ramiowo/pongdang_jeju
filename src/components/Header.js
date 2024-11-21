@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { mainStyle } from "../GlobalStyled";
+import image from "../img/image.png";
 
 const Container = styled.section`
   width: 100%;
@@ -12,7 +13,12 @@ const Container = styled.section`
   padding: 20px ${mainStyle.moPadding};
   margin: 0 auto;
 `;
-const Logo = styled.div``;
+const Logo = styled.div`
+  img {
+    width: 98px;
+    height: 20px;
+  }
+`;
 const Menu = styled.ul`
   display: flex;
   li {
@@ -24,7 +30,9 @@ const Header = () => {
   return (
     <Container>
       <Logo>
-        <Link to={"/"}>제주퐁당</Link>
+        <Link to={"/"}>
+          <img src={image} alt="pongdangjeju_logo"></img>
+        </Link>
       </Logo>
 
       <Menu>

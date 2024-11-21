@@ -28,6 +28,7 @@ export const fetchTouristSpots = async (
       img: item.firstimage || item.firstimage2,
       description: item.overview || "설명이 없습니다.",
       address: item.addr1,
+      tel: item.tel,
     }));
   } catch (error) {
     console.error("관광명소 에러:", error);
@@ -59,6 +60,7 @@ export const fetchFoodSpots = async (
       img: item.firstimage || item.firstimage2,
       description: item.overview || "설명이 없습니다.",
       address: item.addr1,
+      tel: item.tel,
     }));
   } catch (error) {
     console.error("음식점 에러:", error);
@@ -91,6 +93,7 @@ export const fetchSpotDetails = async (contentId) => {
       lat: detail.mapy,
       lng: detail.mapx,
       address: spot?.address || "주소 정보가 없습니다.",
+      tel: spot?.tel || "전화번호 정보가 없습니다.",
     };
   } catch (error) {
     console.log("디테일에러", error);

@@ -1,3 +1,4 @@
+import styled from "styled-components";
 import { mainStyle } from "../GlobalStyled";
 
 const Container = styled.div`
