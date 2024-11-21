@@ -4,11 +4,13 @@ import { mainStyle } from "../GlobalStyled";
 
 const Container = styled.section`
   width: 100%;
+  max-width: 440px;
   height: 60px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px ${mainStyle.moPadding};
+  margin: 0 auto;
 `;
 const Logo = styled.div``;
 const Menu = styled.ul`
