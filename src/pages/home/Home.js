@@ -17,6 +17,7 @@ const Container = styled.section`
 const Home = () => {
   const [touristSpots, setTouristSpots] = useState([]);
   const [foodSpots, setFoodSpots] = useState([]);
+  // const [spotDetail, setSpotDetail] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -24,8 +25,10 @@ const Home = () => {
       try {
         const spots = await fetchTouristSpots();
         const foods = await fetchFoodSpots();
+        // const detail = await fetchSpotDetails();
         setTouristSpots(spots);
         setFoodSpots(foods);
+        // setSpotDetail(detail);
         setIsLoading(false);
       } catch (error) {
         console.log(error);

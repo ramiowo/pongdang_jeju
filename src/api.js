@@ -85,18 +85,55 @@ export const fetchSpotDetails = async (contentId) => {
       touristSpots.find((item) => item.id === contentId) ||
       foodSpots.find((item) => item.id === contentId);
 
+    const imgSrc =
+      spot?.img ||
+      detail.firstimage ||
+      detail.firstimage2 ||
+      "이미지가 없습니다.";
+
     return {
       id: detail.contentid,
       name: detail.title,
       description: detail.overview || "설명이 없습니다.",
-      img: spot?.img || detail.firstimage2,
+      img: imgSrc,
       lat: detail.mapy,
       lng: detail.mapx,
-      address: spot?.address || "주소 정보가 없습니다.",
+      address: spot?.address || detail.addr1 || "주소 정보가 없습니다.",
       tel: spot?.tel || "전화번호 정보가 없습니다.",
+      homepage: detail.homepage,
     };
   } catch (error) {
     console.log("디테일에러", error);
     return null;
+  }
+};
+
+export const fetchSearchSpot = async (keyword, areaCode = "39") => {
+  try {
+    const response = await fetch(
+      `${BASE_URL}/openapi/service/rest/KorService/searchKeyword?ServiceKey=${API_KEY}&areaCode=${areaCode}&keyword=${keyword}&MobileOS=ETC&MobileApp=JEJUGO&_type=json`
+    );
+    const data = await response.json();
+
+    if (data.response && data.response.body && data.response.body.items) {
+      const items = data.response.body.items.item;
+      return {
+        results: items.map((item) => ({
+          id: item.contentid,
+          name: item.title,
+          lat: item.mapy,
+          lng: item.mapx,
+          img: item.firstimage || item.firstimage2,
+          description: item.overview || "설명이 없습니다.",
+          address: item.addr1,
+          tel: item.tel,
+        })),
+      };
+    } else {
+      return { results: [] };
+    }
+  } catch (error) {
+    console.log("검색에러", error);
+    return [];
   }
 };

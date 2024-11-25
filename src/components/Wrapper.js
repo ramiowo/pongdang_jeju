@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { mainStyle } from "../GlobalStyled";
 
 const Container = styled.div`
-  padding: 70px ${mainStyle.moPadding};
+  padding: 0 ${mainStyle.moPadding};
 `;
 
 const Wrapper = ({ children }) => {
