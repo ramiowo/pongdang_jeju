@@ -51,7 +51,7 @@ export const fetchFoodSpots = async (
     const filterImg = data.response.body.items.item.filter(
       (item) => item.firstimage || item.firstimage2
     );
-    console.log(filterImg);
+    // console.log(filterImg);
     return filterImg.map((item) => ({
       id: item.contentid,
       name: item.title,
@@ -75,7 +75,7 @@ export const fetchSpotDetails = async (contentId) => {
     );
     const data = await response.json();
     const detail = data.response.body.items.item[0];
-    console.log("디테일", detail);
+    // console.log("디테일", detail);
 
     const touristSpots = await fetchTouristSpots();
     const foodSpots = await fetchFoodSpots();
@@ -85,22 +85,15 @@ export const fetchSpotDetails = async (contentId) => {
       touristSpots.find((item) => item.id === contentId) ||
       foodSpots.find((item) => item.id === contentId);
 
-    const imgSrc =
-      spot?.img ||
-      detail.firstimage ||
-      detail.firstimage2 ||
-      "이미지가 없습니다.";
-
     return {
       id: detail.contentid,
       name: detail.title,
       description: detail.overview || "설명이 없습니다.",
-      img: imgSrc,
+      img: spot?.img || detail.firstimage2,
       lat: detail.mapy,
       lng: detail.mapx,
-      address: spot?.address || detail.addr1 || "주소 정보가 없습니다.",
+      address: spot?.address || "주소 정보가 없습니다.",
       tel: spot?.tel || "전화번호 정보가 없습니다.",
-      homepage: detail.homepage,
     };
   } catch (error) {
     console.log("디테일에러", error);

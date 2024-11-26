@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { mainStyle } from "../GlobalStyled";
 import image from "../img/image.png";
+import { IoSearch } from "react-icons/io5";
 
 const Container = styled.section`
   width: 100%;
@@ -16,7 +17,7 @@ const Container = styled.section`
 const Logo = styled.div`
   img {
     width: 98px;
-    height: 20px;
+    height: 24px;
   }
 `;
 const Menu = styled.ul`
@@ -37,10 +38,9 @@ const Header = () => {
 
       <Menu>
         <li>
-          <Link to={"/course"}>추천코스</Link>
-        </li>
-        <li>
-          <Link to={"/search"}>검색</Link>
+          <Link to={"/search"}>
+            <IoSearch style={{ color: "#00A7C1", fontSize: "22px" }} />
+          </Link>
         </li>
       </Menu>
     </Container>

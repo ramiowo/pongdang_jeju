@@ -4,10 +4,42 @@ import styled from "styled-components";
 import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import { FaLocationDot } from "react-icons/fa6";
 
-const MainBanner = styled.div``;
-
-const TitleWrap = styled.div``;
+const MainBanner = styled.div`
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 10px;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+`;
+const Blur = styled.div`
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 80px;
+  background-color: rgba(0, 0, 0, 0.4);
+  filter: blur(20px);
+`;
+const TitleWrap = styled.div`
+  display: flex;
+  align-items: flex-start;
+  position: absolute;
+  left: 8%;
+  bottom: 8%;
+  color: #fff;
+  h3 {
+    margin-left: 6px;
+    font-size: 26px;
+    font-weight: 600;
+  }
+`;
 
 const Banner = ({ data }) => {
   return (
@@ -21,7 +53,11 @@ const Banner = ({ data }) => {
           <Link to={`/detail/${spot.id}`}>
             <MainBanner>
               <img src={spot.img} alt={spot.title}></img>
+              <Blur></Blur>
               <TitleWrap>
+                <span>
+                  <FaLocationDot style={{ fontSize: "26px" }} />
+                </span>
                 <h3>{spot.name}</h3>
                 {/* <p>{spot.description}</p> */}
               </TitleWrap>

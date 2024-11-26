@@ -5,19 +5,21 @@ import Loading from "../../components/Loading";
 import Banner from "./components/Banner";
 import Spots from "./components/Spots";
 import { mainStyle } from "../../GlobalStyled";
+import { Helmet } from "react-helmet-async";
 
 const Container = styled.section`
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   max-width: 440px;
   margin: 0 auto;
   padding: 0 ${mainStyle.moPadding};
+  margin-bottom: 40px;
 `;
 
 const Home = () => {
   const [touristSpots, setTouristSpots] = useState([]);
   const [foodSpots, setFoodSpots] = useState([]);
-  // const [spotDetail, setSpotDetail] = useState([]);
+
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -25,10 +27,10 @@ const Home = () => {
       try {
         const spots = await fetchTouristSpots();
         const foods = await fetchFoodSpots();
-        // const detail = await fetchSpotDetails();
+
         setTouristSpots(spots);
         setFoodSpots(foods);
-        // setSpotDetail(detail);
+
         setIsLoading(false);
       } catch (error) {
         console.log(error);
@@ -43,10 +45,21 @@ const Home = () => {
         <Loading />
       ) : (
         <>
+          <Helmet>
+            <title>홈 | 퐁당제주</title>
+          </Helmet>
           <Container>
             <Banner data={touristSpots} />
-            <Spots title="관광명소" data={touristSpots} />
-            <Spots title="맛집명소" data={foodSpots} />
+            <Spots
+              title="관광명소"
+              sub="제주의 매력에 퐁당 빠지다."
+              data={touristSpots}
+            />
+            <Spots
+              title="맛집명소"
+              sub="제주의 맛에 퐁당 빠지다."
+              data={foodSpots}
+            />
           </Container>
         </>
       )}
