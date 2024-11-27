@@ -15,7 +15,6 @@ const Container = styled.section`
   @media screen and (min-width: 441px) {
     max-width: 100%;
   }
-
   @media screen and (min-width: 769px) {
     padding: 0 ${mainStyle.tabletPadding};
   }
@@ -24,6 +23,7 @@ const Container = styled.section`
   }
 `;
 const Form = styled.form`
+  padding-top: 80px;
   input {
     all: unset;
     box-sizing: border-box;

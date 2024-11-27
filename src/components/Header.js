@@ -53,7 +53,7 @@ const Header = () => {
 
     if (pageY >= 300) {
       current.style.position = "fixed";
-      current.style.backgroundColor = "rgba(255,255,255,0.5)";
+      current.style.backgroundColor = "rgba(255,255,,0.5)";
       current.style.backdropFilter = "blur(10px)";
     } else {
       current.style.position = "absolute";
