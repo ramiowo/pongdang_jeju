@@ -13,6 +13,12 @@ const Container = styled.section`
   align-items: center;
   padding: 20px ${mainStyle.moPadding};
   margin: 0 auto;
+  @media screen and (min-width: 441px) {
+    max-width: 100%;
+  }
+  @media screen and (min-width: 1441px) {
+    padding: 0 ${mainStyle.pcPadding};
+  }
 `;
 const Logo = styled.div`
   img {

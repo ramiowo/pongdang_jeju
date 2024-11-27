@@ -14,6 +14,12 @@ const Container = styled.section`
   margin: 0 auto;
   padding: 0 ${mainStyle.moPadding};
   margin-bottom: 40px;
+  @media screen and (min-width: 441px) {
+    max-width: 100%;
+  }
+  @media screen and (min-width: 1441px) {
+    padding: 0 ${mainStyle.pcPadding};
+  }
 `;
 
 const Home = () => {

@@ -12,7 +12,7 @@ const Container = styled.section`
   min-height: 100vh;
   max-width: 440px;
   margin: 0 auto;
-  padding: 0 ${mainStyle.moPadding};
+  /* padding: 0 ${mainStyle.moPadding}; */
 `;
 const Form = styled.form`
   input {

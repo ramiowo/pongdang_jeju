@@ -16,11 +16,21 @@ const Container = styled.section`
   max-width: 440px;
   margin: 0 auto;
   padding: 0 ${mainStyle.moPadding};
+
   img {
     margin-top: 10px;
     width: 100%;
     height: 250px;
     border-radius: 10px;
+  }
+  @media screen and (min-width: 441px) {
+    max-width: 100%;
+  }
+  @media screen and (min-width: 1441px) {
+    padding: 0 ${mainStyle.pcPadding};
+    img {
+      width: 40%;
+    }
   }
 `;
 
@@ -34,7 +44,7 @@ const TextWrap = styled.div`
   h3 {
     font-size: 20px;
     font-weight: 700;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
   }
   span {
     width: 60px;
@@ -46,10 +56,15 @@ const TextWrap = styled.div`
     font-size: 14px;
     color: #383838;
   }
+  @media screen and (min-width: 441px) {
+  }
+  @media screen and (min-width: 1441px) {
+    width: 45%;
+  }
 `;
 
 const Description = styled.p`
-  margin-top: 20px;
+  margin-top: 40px;
   font-size: 14px;
   color: #383838;
   line-height: 20px;

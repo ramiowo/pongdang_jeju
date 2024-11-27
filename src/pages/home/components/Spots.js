@@ -27,7 +27,7 @@ const Title = styled.div`
   }
   p {
     font-size: 12px;
-    color: #383838;
+    color: #434343;
     margin-bottom: 20px;
   }
 `;

@@ -41,7 +41,7 @@ const Location = ({ lat, lng, name }) => {
       <p style={{ fontSize: "18px", fontWeight: "500" }}>지도</p>
       <div
         id="map"
-        style={{ width: "100%", height: "260px", margin: "20px 0" }}
+        style={{ width: "100%", height: "260px", margin: "20px 0 40px 0" }}
       ></div>
     </>
   );

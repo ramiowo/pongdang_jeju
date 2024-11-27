@@ -3,6 +3,7 @@ import reset from "styled-reset";
 
 export const mainStyle = {
   moPadding: "16px",
+  pcPadding: "10%",
 };
 
 export const GlobalStyled = createGlobalStyle`
