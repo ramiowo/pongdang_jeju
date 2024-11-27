@@ -13,6 +13,9 @@ const Title = styled.div`
     display: flex;
     align-items: end;
     margin-bottom: 5px;
+    @media screen and (min-width: 1441px) {
+      margin-bottom: 10px;
+    }
   }
   span {
     font-size: 16px;
@@ -30,6 +33,17 @@ const Title = styled.div`
     color: #434343;
     margin-bottom: 20px;
   }
+  @media screen and (min-width: 1441px) {
+    span {
+      font-size: 18px;
+    }
+    h3 {
+      font-size: 24px;
+    }
+    p {
+      font-size: 14px;
+    }
+  }
 `;
 
 const Con = styled.div`
@@ -46,6 +60,9 @@ const Con = styled.div`
     margin-top: 10px;
     font-size: 14px;
     font-weight: 600;
+    @media screen and (min-width: 1441px) {
+      font-size: 16px;
+    }
   }
 `;
 

@@ -28,6 +28,10 @@ const Container = styled.section`
   }
   @media screen and (min-width: 769px) {
     padding: 0 ${mainStyle.tabletPadding};
+    img {
+      /* width: 80%; */
+      height: 300px;
+    }
   }
   @media screen and (min-width: 1025px) {
     img {
@@ -75,11 +79,28 @@ const TextWrap = styled.div`
   }
   @media screen and (min-width: 441px) {
   }
+  @media screen and (min-width: 769px) {
+    /* width: 80%; */
+  }
   @media screen and (min-width: 1025px) {
     width: 45%;
   }
   @media screen and (min-width: 1441px) {
     width: 45%;
+    h3 {
+      font-size: 24px;
+    }
+    span {
+      width: 80px;
+      font-size: 16px;
+      font-weight: 500;
+    }
+    .information {
+      margin-left: 15px;
+      font-size: 16px;
+      color: #383838;
+      margin-bottom: 14px;
+    }
   }
 `;
 
@@ -87,10 +108,13 @@ const Description = styled.p`
   margin-top: 40px;
   font-size: 14px;
   color: #383838;
-  line-height: 20px;
+  line-height: 24px;
   white-space: ${({ $isExpanded }) => ($isExpanded ? "normal" : "nowrap")};
   text-overflow: ellipsis;
   overflow: hidden;
+  @media screen and (min-width: 1441px) {
+    font-size: 16px;
+  }
 `;
 
 const ExpandButton = styled.button`

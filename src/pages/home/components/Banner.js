@@ -7,6 +7,7 @@ import "swiper/css";
 import { FaLocationDot } from "react-icons/fa6";
 
 const MainBanner = styled.div`
+  margin-top: 60px;
   position: relative;
   width: 100%;
   height: 400px;
@@ -16,6 +17,9 @@ const MainBanner = styled.div`
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+  @media screen and (min-width: 1441px) {
+    height: 520px;
   }
 `;
 const Blur = styled.div`
@@ -38,6 +42,13 @@ const TitleWrap = styled.div`
     margin-left: 6px;
     font-size: 26px;
     font-weight: 600;
+  }
+  @media screen and (min-width: 1441px) {
+    left: 6%;
+    bottom: 10%;
+    h3 {
+      font-size: 34px;
+    }
   }
 `;
 
