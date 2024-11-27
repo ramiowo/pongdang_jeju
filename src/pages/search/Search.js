@@ -12,7 +12,16 @@ const Container = styled.section`
   min-height: 100vh;
   max-width: 440px;
   margin: 0 auto;
-  /* padding: 0 ${mainStyle.moPadding}; */
+  @media screen and (min-width: 441px) {
+    max-width: 100%;
+  }
+
+  @media screen and (min-width: 769px) {
+    padding: 0 ${mainStyle.tabletPadding};
+  }
+  @media screen and (min-width: 1441px) {
+    padding: 0 ${mainStyle.pcPadding};
+  }
 `;
 const Form = styled.form`
   input {
@@ -28,9 +37,30 @@ const Form = styled.form`
 `;
 const ConWrap = styled.div`
   display: grid;
+  margin-top: 50px;
   grid-template-columns: repeat(2, 1fr);
   column-gap: 10px;
   row-gap: 20px;
+  /* @media screen and (min-width: 441px) {
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 10px;
+    row-gap: 20px;
+  } */
+  @media screen and (min-width: 769px) {
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 15px;
+    row-gap: 20px;
+  }
+  @media screen and (min-width: 1025px) {
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 20px;
+    row-gap: 20px;
+  }
+  @media screen and (min-width: 1441px) {
+    grid-template-columns: repeat(5, 1fr);
+    column-gap: 30px;
+    row-gap: 20px;
+  }
 `;
 const Con = styled.div`
   img {

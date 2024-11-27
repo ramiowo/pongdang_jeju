@@ -26,11 +26,28 @@ const Container = styled.section`
   @media screen and (min-width: 441px) {
     max-width: 100%;
   }
+  @media screen and (min-width: 769px) {
+    padding: 0 ${mainStyle.tabletPadding};
+  }
+  @media screen and (min-width: 1025px) {
+    img {
+      width: 45%;
+    }
+  }
   @media screen and (min-width: 1441px) {
     padding: 0 ${mainStyle.pcPadding};
     img {
-      width: 40%;
+      width: 50%;
+      height: 350px;
     }
+  }
+`;
+
+const ConWrap = styled.div`
+  @media screen and (min-width: 1025px) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 `;
 
@@ -51,12 +68,15 @@ const TextWrap = styled.div`
     font-size: 14px;
     font-weight: 500;
   }
-  p {
+  .information {
     margin-left: 15px;
     font-size: 14px;
     color: #383838;
   }
   @media screen and (min-width: 441px) {
+  }
+  @media screen and (min-width: 1025px) {
+    width: 45%;
   }
   @media screen and (min-width: 1441px) {
     width: 45%;
@@ -135,8 +155,27 @@ const Detail = () => {
     loadDetail();
   }, [id]);
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1441) {
+        setIsExpanded(true);
+      } else {
+        setIsExpanded(false);
+      }
+    };
+
+    handleResize(); // 초기 상태 설정
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   const toggleDescription = () => {
-    setIsExpanded((prev) => !prev);
+    if (window.innerWidth < 1441) {
+      setIsExpanded((prev) => !prev);
+    }
   };
 
   const currentSpot =
@@ -152,24 +191,28 @@ const Detail = () => {
           <PageTitle title={spot?.name} />
           <Wrapper>
             <Container>
-              {spot?.img && <img src={spot.img} alt={spot.name} />}
-              <TextWrap>
-                <h3>{spot?.name}</h3>
-                <div>
-                  <span>주소</span>
-                  <p>{spot?.address}</p>
-                </div>
-                <div>
-                  <span>전화번호</span>
-                  <p>{spot?.tel}</p>
-                </div>
-              </TextWrap>
-              <Description $isExpanded={isExpanded}>
-                {isExpanded ? spot.description : shortDescription}
-              </Description>
-              <ExpandButton onClick={toggleDescription}>
-                {isExpanded ? <FaAngleUp /> : <FaAngleDown />}
-              </ExpandButton>
+              <ConWrap>
+                {spot?.img && <img src={spot.img} alt={spot.name} />}
+                <TextWrap>
+                  <h3>{spot?.name}</h3>
+                  <div>
+                    <span>주소</span>
+                    <p className="information">{spot?.address}</p>
+                  </div>
+                  <div>
+                    <span>전화번호</span>
+                    <p className="information">{spot?.tel}</p>
+                  </div>
+                  <Description $isExpanded={isExpanded}>
+                    {isExpanded ? spot.description : shortDescription}
+                  </Description>
+                  {window.innerWidth < 1441 && (
+                    <ExpandButton onClick={toggleDescription}>
+                      {isExpanded ? <FaAngleUp /> : <FaAngleDown />}
+                    </ExpandButton>
+                  )}
+                </TextWrap>
+              </ConWrap>
               <MapWrap>
                 {currentSpot && (
                   <Location

@@ -17,6 +17,9 @@ const Container = styled.section`
   @media screen and (min-width: 441px) {
     max-width: 100%;
   }
+  @media screen and (min-width: 769px) {
+    padding: 0 ${mainStyle.tabletPadding};
+  }
   @media screen and (min-width: 1441px) {
     padding: 0 ${mainStyle.pcPadding};
   }

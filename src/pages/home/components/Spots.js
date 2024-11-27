@@ -33,14 +33,14 @@ const Title = styled.div`
 `;
 
 const Con = styled.div`
-  display: flex;
+  /* display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
   img {
-    width: 100%; /* 부모 컨테이너 너비에 맞춤 */
-    height: 250px; /* 원하는 고정 높이 */
-    object-fit: cover; /* 이미지 비율 유지하며 부모 크기에 맞게 자름 */
-    border-radius: 10px; /* 모서리를 둥글게 (선택 사항) */
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
   }
   p {
     margin-top: 10px;
@@ -53,6 +53,12 @@ const Spots = ({ title, sub, data }) => {
   const params = {
     spaceBetween: 5,
     slidesPerView: 1.8,
+    breakpoints: {
+      1440: { slidesPerView: 4.5, spaceBetween: 16 },
+      1024: { slidesPerView: 4, spaceBetween: 12 },
+      650: { slidesPerView: 2.3, spaceBetween: 10 },
+      430: { slidesPerView: 2, spaceBetween: 8 },
+    },
   };
   return (
     <Container>
