@@ -23,7 +23,7 @@ const Container = styled.section`
   }
 `;
 const Form = styled.form`
-  padding-top: 80px;
+  padding-top: 10px;
   input {
     all: unset;
     box-sizing: border-box;

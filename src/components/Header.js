@@ -6,6 +6,7 @@ import { IoSearch } from "react-icons/io5";
 import { useEffect, useRef } from "react";
 
 const Container = styled.section`
+  margin-top: 60px;
   width: 100%;
   max-width: 440px;
   height: 60px;
@@ -14,6 +15,8 @@ const Container = styled.section`
   align-items: center;
   padding: 20px ${mainStyle.moPadding};
   margin: 0 auto;
+  position: absolute;
+
   z-index: 10;
   @media screen and (min-width: 441px) {
     max-width: 100%;
@@ -47,24 +50,29 @@ const Menu = styled.ul`
 const Header = () => {
   const headerRef = useRef();
 
-  const scrollHandler = () => {
-    const pageY = window.scrollY;
-    const current = headerRef.current;
-
-    if (pageY >= 300) {
-      current.style.position = "fixed";
-      current.style.backgroundColor = "rgba(255,255,,0.5)";
-      current.style.backdropFilter = "blur(10px)";
-    } else {
-      current.style.position = "absolute";
-      current.style.backgroundColor = "transparent";
-      current.style.backdropFilter = "blur(0px)";
-    }
-  };
-
   useEffect(() => {
-    return window.addEventListener("scroll", scrollHandler);
-  });
+    const scrollHandler = () => {
+      const pageY = window.scrollY;
+      const current = headerRef.current;
+
+      if (pageY >= 300) {
+        current.style.position = "fixed";
+        current.style.backgroundColor = "rgba(255,255,255,0.5)";
+        current.style.backdropFilter = "blur(10px)";
+      } else {
+        current.style.position = "absolute";
+        current.style.backgroundColor = "transparent";
+        current.style.backdropFilter = "blur(0px)";
+      }
+    };
+
+    window.addEventListener("scroll", scrollHandler);
+
+    return () => {
+      // 이벤트 정리
+      window.removeEventListener("scroll", scrollHandler);
+    };
+  }, []);
   return (
     <Container ref={headerRef}>
       <Logo>

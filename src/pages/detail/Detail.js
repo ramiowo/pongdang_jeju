@@ -16,9 +16,10 @@ const Container = styled.section`
   max-width: 440px;
   margin: 0 auto;
   padding: 0 ${mainStyle.moPadding};
+  position: relative; /* 겹침 방지 */
+  z-index: 1;
 
   img {
-    margin-top: 10px;
     width: 100%;
     height: 250px;
     border-radius: 10px;
@@ -56,7 +57,7 @@ const ConWrap = styled.div`
 `;
 
 const TextWrap = styled.div`
-  margin-top: 20px;
+  margin-top: 60px;
   div {
     display: flex;
     margin-top: 7px;
