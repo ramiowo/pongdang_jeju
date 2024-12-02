@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/pongdang_jeju/static/css/main.3c70d7db.css",
+    "main.js": "/pongdang_jeju/static/js/main.9a1d21b7.js",
+    "index.html": "/pongdang_jeju/index.html",
+    "main.3c70d7db.css.map": "/pongdang_jeju/static/css/main.3c70d7db.css.map",
+    "main.9a1d21b7.js.map": "/pongdang_jeju/static/js/main.9a1d21b7.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3c70d7db.css",
+    "static/js/main.9a1d21b7.js"
+  ]
+}
